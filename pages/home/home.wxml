@@ -1,0 +1,37 @@
+<!--pages/home/home.wxml-->
+<swiper
+  class='swiper'
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+>
+  <block wx:for="{{imgUrls}}" class='swiper-item'wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='operation'>
+  <view class='action order'>
+    <view class='actionLeft'>
+      <text>现在下单</text>
+      <text>ORDER NOW</text>
+    </view>
+    <image src='../../icons/coffee.png'></image>
+  </view>
+  <navigator class='action wallet' url='/pages/wallet/wallet'>
+    <view class='actionLeft'>
+      <text class='leftTop'>咖啡钱包</text>
+      <text>ORDER NOW</text>
+    </view>
+    <image src='../../icons/gift.png'></image>
+  </navigator>
+  <navigator class='action send' url='/pages/sendCoffee/sendCoffee'>
+    <view class='actionLeft'>
+      <text>送Ta咖啡</text>
+      <text>ORDER NOW</text>
+    </view>
+    <image src='../../icons/wallet.png'></image>
+  </navigator>
+</view>

@@ -1,0 +1,3 @@
+<!--pages/sendWay/sendWay.wxml-->
+<text catchtap='handleChooseLocation'>选择配送地址\n</text>
+<text>{{address}}\n</text>

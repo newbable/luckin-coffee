@@ -1,0 +1,17 @@
+<!--pages/order/order.wxml-->
+<view class='order'>
+  <view class='order-header'>
+    <view class='self-order'>自提订单：11111111</view>
+    <view class='order-status'>已完成</view>
+  </view>
+  <view class='order-list'>
+    <view class='order-item'>
+      <view class='order-top'>
+        <text class='order-address'>力保大厦（123）</text>
+        <text class='order-date'>2019-01-01 14:21</text>
+      </view>
+      <view class='order-middle-name'>焦糖玛奇朵 等共1件商品</view>
+      <view class='order-bottom-price'>￥0</view>
+    </view>
+  </view>
+</view>

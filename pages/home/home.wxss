@@ -1,0 +1,49 @@
+/* pages/home/home.wxss */
+page{
+  height: 100%;
+}
+swiper{
+  height: 60%;
+}
+.slide-image{
+  width: 750rpx;
+  height: 100%;
+}
+.operation{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.action{
+  font-size: 14px;
+  height: 60px;
+  margin: 0 10px;
+}
+.actionLeft{
+  height: 60px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+.actionLeft>text{
+  height: 30px;
+  float: left;
+  color: #333;
+}
+.actionLeft>text:first-child{
+  line-height: 50px;
+}
+.actionLeft>text:last-child{
+  line-height: 20px;
+  font-size: 10px;
+}
+.action>image{
+  width: 32px;
+  height: 32px;
+  float: right;
+  margin-top: 15px;
+}
+.wallet{
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}

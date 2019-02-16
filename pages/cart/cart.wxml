@@ -1,0 +1,60 @@
+<!--pages/cart/cart.wxml-->
+<scroll-view class='cart'scroll-y="true">
+  <view class='cart-list'wx:for="{{cartList}}"wx:key="{{item.id}}">
+    <view class='cart-item'>
+      <view class='cart-left'>
+        <checkbox-group
+        bindchange="checkboxChange"
+        style="border-radius:50%;"
+        data-count="{{item.count}}"
+        data-price="{{item.price}}"
+        data-ischecked="{{item.checked}}"
+        data-id="{{item.id}}"
+        >
+          <label class="checkbox">
+            <checkbox
+            checked="{{item.checked}}"
+            color='lightskyblue'
+            />
+          </label>
+        </checkbox-group>
+      </view>
+      <view class='cart-right'>
+        <view class='cart-right-top'>
+          <view class='name'>{{item.title}}</view>
+          <view class='info'>大/无糖/热</view>
+        </view>
+        <view class='cart-right-bottom'>
+          <view class='price'>￥{{item.price}}</view>
+          <view class='operation'>
+            <text
+            class='action reduce'
+            catchtap='handleDecrease'
+            data-id="{{item.id}}"
+            data-count="{{item.count}}"
+            data-price="{{item.price}}"
+            data-index="{{index}}"
+            style="background: #fff;color:lightskyblue;border:1px solid lightskyblue;"
+            >-</text>
+            <text class='amount'>{{item.count}}</text>
+            <text
+            class='action add'
+            catchtap='handleIncrease'
+            data-id="{{item.id}}"
+            data-count="{{item.count}}"
+            data-price="{{item.price}}"
+            data-index="{{index}}"
+            style="background: lightskyblue;color:#fff;border:0;">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='payRow'>
+  <view class='payLeft'>
+    <text class='shouldPay'>应付合计</text>
+    <text class='totalPrice'>￥{{totalPrice}}</text>
+  </view>
+  <navigator class='payRight {{selectWare?"active":""}}'>去结算</navigator>
+</view>

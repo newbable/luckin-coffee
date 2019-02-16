@@ -1,0 +1,109 @@
+/* pages/cart/cart.wxss */
+page{
+  height: 100%;
+  display: flex;
+  flex-direction:column; 
+}
+.cart{
+  height: 100%;
+  background: whitesmoke;
+  position: relative;
+  padding-bottom: 40px;
+}
+.cart-list{
+  background: #fff;
+  height: 100px;
+}
+.cart-item{
+  margin: 5px;
+}
+.cart-left{
+  width: 60rpx;
+  height: 100px;
+  line-height: 100px;
+  float: left;
+}
+.cart-right{
+  width: 658rpx;
+  height: 100px;
+  line-height: 100px;
+  float: left;
+  margin-left: 5px;
+}
+.cart-right-top{
+  height: 50px;
+}
+.cart-right-top .name{
+  height: 30px;
+  line-height: 18px;
+  font-size: 14px;
+}
+.cart-right-top .info{
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+}
+.cart-right-bottom{
+  height: 50px;
+  line-height: 50px;
+}
+.price{
+  float: left;
+  font-size: 14px;
+}
+.operation{
+  float: right;
+  width: 155rpx;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.amount{
+  width: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+.action{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+}
+.payRow{
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  background: #fff;
+  bottom: 0;
+  display: flex;
+  border-top: 1px solid #f1f1f1;
+}
+.payLeft{
+  width: 70%;
+  height: 100%;
+  line-height: 50px;
+}
+.shouldPay{
+  font-size: 12px;
+  margin:0 5px;
+  color: #666;
+}
+.totalPrice{
+  font-size: 14px;
+  font-weight: bold;
+}
+.payRight{
+  width: 30%;
+  height: 100%;
+  background: rgba(135, 206, 250,.6);
+  color: #fff;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.payRight.active{
+  background: rgba(135, 206, 250,1);
+}

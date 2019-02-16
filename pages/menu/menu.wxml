@@ -1,0 +1,134 @@
+<!--pages/menu/menu.wxml-->
+<view class='menu-header'>
+  <view class='menu-header-left'>
+    <image src='/icons/location.png' class='positionImg' catchtap='choosePosition'></image>
+    <view class='positionInfo'>
+      <text>{{currentCity}}{{currentDistrict}}</text>
+      <text>距您{{distance}}</text>
+    </view>
+  </view>
+  <view class='menu-header-right'>
+    <navigator class='sendWay'url='/pages/sendWay/sendWay'>
+      <view class='send self'>自提</view>
+      <view class='send express'>外送</view>
+    </navigator>
+  </view>
+</view>
+<swiper
+  class='menu-swiper'
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+>
+  <block wx:for="{{imgUrls}}"wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item.imageUrl}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='menu-content'>
+  <view class='menu-aside'>
+    <view
+    class='aside-item {{currCate===item.id?"active":""}}'
+    wx:for="{{cateList}}"
+    wx:key="{{item.id}}"
+    data-tabId='{{item.id}}'
+    catchtap='changeCate'
+    >{{item.name}}</view>
+  </view>
+  <scroll-view
+  class='menu-main'
+  scroll-y="true"
+  bindscrolltolower="loadMore"
+  scroll-top="{{scrolltop}}"
+  >
+    <view class='main-item'wx:for="{{menuList}}" wx:key="{{item.id}}">
+
+      <view class='menu-image'>
+        <image src='{{item.image}}' class='wareImg'></image>
+      </view>
+
+      <view class='menu-right'>
+
+        <view class='menu-right-top'>
+          <view class='title'>{{item.title}}</view>
+          <view class='eName'>natie</view>
+          <view class='size'>默认</view>
+        </view>
+        <view class='menu-right-bottom'>
+          <view class='price'>￥{{item.price}}</view>
+          <view class='increase'
+          catchtap='handleShowModal'
+          data-id="{{item.id}}"
+          data-currWareImg="{{item.image}}"
+          data-currWareTitle="{{item.title}}"
+          data-currWarePrice="{{item.price}}"
+          >+</view>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">
+      <image src='{{currWarImg}}' class='modal-img'></image>
+      <view class='cancelBtn' bindtap="onCancel"data-status="cancel">X</view>
+    </view>
+
+    <scroll-view class="modal-content"scroll-y="true">
+      <view class="modal-btns">
+        <view class='btn norms'>
+          <view class='choose'>规格</view>
+          <view class='chooseBtn'style="border:1px solid #f1f1f1;background:#fff;">大</view>
+        </view>
+        <view class='btn temprature'>
+          <view class='choose'>温度</view>
+          <view class='chooseBtn {{option==="0"?"active":""}}' catchtap='handleChoose' data-option='0'>冰</view>
+          <view class='chooseBtn {{option==="1"?"active":""}}' catchtap='handleChoose'data-option='1'>热</view>
+        </view>
+        <view class='btn sugar'>
+          <view class='choose'>糖度</view>
+          <view class='chooseBtn {{select==="2"?"active":""}}' catchtap='handleChoose'data-select='2'>单糖</view>
+          <view class='chooseBtn {{select==="3"?"active":""}}' catchtap='handleChoose'data-select='3'>半糖</view>
+        </view>
+      </view>
+      <view class='masterSay'>
+        <view class='top'>大咖说</view>
+        <view class='bottom'>
+          <view class='avatar'></view>
+          <view class='right'>
+            <view class='info name'>井崎英典</view>
+            <view class='info judge'>大V放大环保投入和股份股官方不会太过于精华液</view>
+            <view class='info dateTime'>2018-04-02 11:07</view>
+          </view>
+        </view>
+      </view>
+      <view class='discription'>
+       <view class='disTitle'>商品描述</view>
+       <view class='dis shortDis'>{{currWareTitle}}</view>
+       <view class='dis materials'>反监控和光伏</view>
+       <view class='dis advice'>成绩单上并未如阳光</view>
+      </view>
+    </scroll-view>
+    <view class="modal-footer">
+      <view class='footer-top'>
+        <view>
+            <view class='fleft'>￥{{currWarePrice}}</view>
+            <view class='orderAction'>
+              <text class='fright reduce' catchtap='handleReduce'>-</text>
+              <text class='fright amount'>{{amount}}</text>
+              <text class='fright add' catchtap='handleAdd'>+</text>
+            </view>
+        </view>
+        <view class='orderInfo'>{{currWareTitle}}￥{{currWarePrice}}</view>
+      </view>
+      <view class='footer-bottom'>
+        <view class='footer sendBtn'><text class='sendBar'>充2赠1</text></view>
+        <view class='footer addBtn'><text class='addBar' catchtap='addToCart'>加入购物车</text></view>
+      </view>
+    </view>
+  </view>
