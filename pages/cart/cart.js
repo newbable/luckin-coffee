@@ -10,6 +10,7 @@ Page({
     carts=carts.map(item=>{
       if (item.id === e.target.dataset.id){
         item.checked=!item.checked
+        console.log(item.checked)
       }
       return item
     })
