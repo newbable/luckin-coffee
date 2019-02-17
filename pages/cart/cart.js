@@ -155,6 +155,7 @@ Page({
    */
   onLoad: function (options) {
     this.cart = wx.getStorageSync('store') ? JSON.parse(wx.getStorageSync('store')) : []
+    console.log(this.cart)
     if (this.cart.length) {
       this.fetchCartList()
     }
